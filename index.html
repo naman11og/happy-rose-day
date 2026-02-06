@@ -1,0 +1,182 @@
+!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Happy Rose Day Baby ❤️🌹</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<style>
+body {
+  margin: 0;
+  height: 100vh;
+  overflow: hidden;
+  font-family: 'Segoe UI', sans-serif;
+  background: linear-gradient(135deg, #ff4d6d, #ff9aa2);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+}
+
+/* Card */
+.card {
+  background: rgba(255,255,255,0.15);
+  backdrop-filter: blur(12px);
+  border-radius: 24px;
+  padding: 26px 22px;
+  max-width: 360px;
+  text-align: center;
+  box-shadow: 0 20px 50px rgba(0,0,0,0.3);
+  z-index: 2;
+}
+
+/* Heading */
+h1 {
+  font-size: 25px;
+  margin-bottom: 8px;
+}
+
+.name {
+  font-size: 19px;
+  margin-bottom: 12px;
+}
+
+/* Photo */
+.photo {
+  width: 100%;
+  border-radius: 18px;
+  margin: 12px 0 16px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.35);
+}
+
+/* Note */
+.note {
+  font-size: 16px;
+  line-height: 1.6;
+  margin-bottom: 20px;
+}
+
+/* Buttons */
+.buttons {
+  display: flex;
+  justify-content: space-around;
+}
+
+button {
+  padding: 12px 22px;
+  border: none;
+  border-radius: 30px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+#yesBtn {
+  background: #ff1e56;
+  color: white;
+}
+
+#noBtn {
+  background: white;
+  color: #ff1e56;
+  position: relative;
+}
+
+/* Roses */
+.rose {
+  position: fixed;
+  top: -40px;
+  font-size: 26px;
+  animation: fall linear infinite;
+  z-index: 1;
+}
+
+@keyframes fall {
+  to {
+    transform: translateY(110vh) rotate(360deg);
+  }
+}
+</style>
+</head>
+
+<body>
+
+<!-- Romantic Music -->
+<audio autoplay loop>
+  <source src="https://cdn.pixabay.com/audio/2022/10/25/audio_8f8eeb5c7e.mp3" type="audio/mpeg">
+</audio>
+
+<div class="card">
+  <h1>HAPPY ROSE DAY BABY ❤️🌹</h1>
+  <div class="name">Prachi Rai 💖</div>
+
+  <!-- Your Photo -->
+  <img src="us.jpg" class="photo" alt="Us Together">
+
+  <div class="note">
+    This rose carries my heart in every petal 🌹  
+    Will you accept my rose and my love?
+  </div>
+
+  <div class="buttons">
+    <button id="yesBtn" onclick="acceptLove()">Yes ❤️</button>
+    <button id="noBtn" onclick="runAway()">No 🙃</button>
+  </div>
+</div>
+
+<script>
+/* Falling pink + red roses */
+const roses = ["🌹","🌸"];
+for (let i = 0; i < 35; i++) {
+  let rose = document.createElement("div");
+  rose.className = "rose";
+  rose.innerHTML = roses[Math.floor(Math.random()*roses.length)];
+  rose.style.left = Math.random() * 100 + "vw";
+  rose.style.animationDuration = (3 + Math.random() * 5) + "s";
+  rose.style.opacity = Math.random();
+  document.body.appendChild(rose);
+}
+
+/* No button runs + shrinks */
+let scale = 1;
+function runAway() {
+  const btn = document.getElementById("noBtn");
+  scale -= 0.15;
+  btn.style.transform = `scale(${scale})`;
+  btn.style.left = (Math.random() * 140 - 70) + "px";
+  btn.style.top = (Math.random() * 140 - 70) + "px";
+  if (scale < 0.2) btn.style.display = "none";
+}
+
+/* Acceptance Page */
+function acceptLove() {
+  document.body.innerHTML = `
+  <div style="
+    height:100vh;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+    text-align:center;
+    background:linear-gradient(135deg,#ff4d6d,#ff9aa2);
+    color:white;
+    padding:24px;
+    font-family:'Segoe UI',sans-serif;
+  ">
+    <h1 style="font-size:30px;margin-bottom:14px;">
+      I love you my baby 🧿❤️
+    </h1>
+
+    <p style="font-size:18px;line-height:1.7;max-width:380px;">
+      It is our first valentine together and the week's already started.<br><br>
+      I am sorry and I promise to become a better person.<br><br>
+      Happy rose day baby 🧿🌹<br><br>
+      <b>I LOVE YOUUUU THE MOST 🌍🥹❤️🧿</b>
+    </p>
+  </div>
+  `;
+}
+</script>
+
+</body>
+</html>
